@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# Steve Hurn Cars - React Rebuild
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Background
+
+This repo is a prospective concept for shcars.co.uk, an existing site that was built as a small node app using marko.js for the front-end framework. This is an opportunity to rebuild the site with the same design but make it more scalable, easier to maintain and have the benefit of making it stateful which will allow for improved user experience with future revisions.
+
+It's also a great *real world* opportunity to 'flex my muscles' with react!
 
 ## Available Scripts
 
