@@ -1,0 +1,36 @@
+.nav-item {
+    font-size: 1rem;
+    color: black;
+}
+
+.nav-link {
+    position: relative;
+    display: inline-block;
+    padding: 0.5rem 1rem;
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        height: 1px;
+        width: 0;
+        background-color: black;
+        opacity: 0;
+        transition: 0.25s ease-in-out;
+    }
+
+    &.active,
+    &:hover,
+    &:focus {
+        &::after {
+            width: calc(100% - 2.5rem);
+            opacity: 1;
+        }
+    }
+}
+
+.nav-dropdown {
+    justify-content: center;
+}

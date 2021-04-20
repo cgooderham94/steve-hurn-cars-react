@@ -4,12 +4,12 @@ import Logo from '../Logo/Logo';
 import Hamburger from './Hamburger/Hamburger';
 import NavigationItem from './NavigationItem/NavigationItem';
 import PhoneIcon from './assets/phone-icon.svg'
+import convertToKebabCase from '../../hof/convertToKebabCase';
 import './Navigation.scss';
 
 // Temporary nav links. Fetch nav links from Craft
 // TODO: Replace static nav links with links fetched from back-end
 const navigationItems = [
-    { path: '/', text: 'Home', childItems: null },
     { text: 'Our Collection', childItems: [
         { path: '/collection/current-collection', text: 'Current Collection' },
         { path: '/collection/classic-collection', text: 'Classic Collection' },
@@ -22,29 +22,29 @@ const navigationItems = [
 const Navigation = () => {
     return (
         <header className="App-header">
-            <nav className="navbar" role="navigation">
+            <nav className="navbar flex flex-col lg:flex-row flex-wrap px-4" role="navigation">
                 <div className="navbar-brand">
                     <Logo isLink />
                     
                     <Hamburger />
                 </div>
 
-                <div className="navbar-menu" id="navMenu">
+                <div className="navbar-menu flex flex-col lg:flex-row justify-between flex-grow" id="navMenu">
                     {/* Main Nav Items */}
-                    <div className="navbar-start">
+                    <div className="navbar-start flex flex-col lg:flex-row justify-center lg:justify-start items-center flex-grow">
                         { navigationItems.map(item => (
-                            <NavigationItem path={item.path} childItems={item.childItems}>{ item.text }</NavigationItem>
+                            <NavigationItem path={item.path} childItems={item.childItems} key={convertToKebabCase(item.text)}>{ item.text }</NavigationItem>
                         )) }
                     </div>
 
                     {/* Minor Nav Items incl. contact */}
-                    <div className="navbar-end">
-                        <a className="navbar-item contact-call" href="tel:+447971124144">
-                            <img src={PhoneIcon} alt="" width="25" height="25" />
+                    <div className="navbar-end flex flex-col lg:flex-row justify-center items-center mt-6 lg:mt-0">
+                        <a className="nav-item flex items-center contact-call" href="tel:+447971124144">
+                            <img src={PhoneIcon} className="mr-2" alt="" width="25" height="25" />
                             +44 7971 124144
                         </a>
                         
-                        <Link pathName="/contact-us" className="nav-item btn nav-btn">Contact Us</Link>
+                        <Link to="/contact-us" className="nav-item border rounded px-4 py-2 ml-4 mt-4 lg:mt-0">Contact Us</Link>
                     </div>
                 </div>
             </nav>

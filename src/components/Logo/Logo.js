@@ -6,7 +6,7 @@ const Logo = props => {
     let logo = logoImg;
 
     if (props.isLink) {
-        logo = <a href="/" className="nav-link">{ logoImg }</a>
+        logo = <a href="/" className="inline-block">{ logoImg }</a>
     }
 
     return logo;

@@ -1,9 +1,7 @@
 .navbar {
-    display: flex;
     flex-wrap: wrap;
-
-    .navbar-start,
-    .navbar-end {
-        display: flex;
-    }
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
 }
