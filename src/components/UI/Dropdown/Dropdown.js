@@ -7,7 +7,7 @@ const Dropdown = (props) => {
     let dropdownClasses = "dropdown nav-item";
     let dropdownMenuClasses = "dropdown-menu";
     dropdownClasses = props.classes ? dropdownClasses += ' ' + props.classes : dropdownClasses;
-    dropdownMenuClasses = isOpen ? dropdownMenuClasses += ' dropdown-menu--shown border-t-2': dropdownMenuClasses;
+    dropdownMenuClasses = isOpen ? dropdownMenuClasses += ' dropdown-menu--shown border-t-2' : dropdownMenuClasses;
 
     const toggleDropdown = () => {
       setIsOpen(prevIsOpen => {

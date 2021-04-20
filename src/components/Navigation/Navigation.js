@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import Logo from '../Logo/Logo';
@@ -17,19 +18,30 @@ const navigationItems = [
     { path: '/past-marques', text: 'Past Marques', childItems: null },
     { path: '/our-service', text: 'Our Service', childItems: null },
     { path: '/about-us', text: 'About Us', childItems: null },
-]
+];
 
 const Navigation = () => {
+    const [navMobOpen, setNavMobOpen] = useState(false);
+
+    let navbarMenuClasses = "navbar-menu flex flex-col lg:flex-row justify-between flex-grow ml-4";
+    navbarMenuClasses = navMobOpen ? navbarMenuClasses += " navbar-menu--shown" : navbarMenuClasses;    
+
+    const toggleMobNavMenu = () => {
+        setNavMobOpen(prevNavMobOpen => {
+            return !navMobOpen;
+        });
+    }
+
     return (
-        <header className="App-header">
-            <nav className="navbar flex flex-col lg:flex-row flex-wrap px-4" role="navigation">
-                <div className="navbar-brand">
-                    <Logo isLink />
+        <header>
+            <nav className="navbar flex flex-col lg:flex-row flex-wrap py-2 px-4" role="navigation">
+                <div className="navbar-brand flex justify-between">
+                    <Logo isLink classes="mr-4" />
                     
-                    <Hamburger />
+                    <Hamburger toggleMobNav={toggleMobNavMenu} isActive={navMobOpen} />
                 </div>
 
-                <div className="navbar-menu flex flex-col lg:flex-row justify-between flex-grow" id="navMenu">
+                <div className={navbarMenuClasses}>
                     {/* Main Nav Items */}
                     <div className="navbar-start flex flex-col lg:flex-row justify-center lg:justify-start items-center flex-grow">
                         { navigationItems.map(item => (

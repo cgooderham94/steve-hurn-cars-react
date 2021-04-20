@@ -4,4 +4,22 @@
     top: 0;
     left: 0;
     width: 100%;
+
+    .navbar-menu {
+        height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: 0.3s ease-in-out;
+
+        @screen lg {
+            height: auto;
+            opacity: 1;
+            overflow: visible;
+        }
+
+        &--shown {
+            opacity: 1;
+            height: auto;
+        }
+    }
 }

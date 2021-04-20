@@ -1,9 +1,17 @@
+import './Hamburger.scss';
+
 const Hamburger = props => {
+    let classes = "hamburger hamburger--spring lg:hidden my-auto";
+
+    if (props.isActive) {
+        classes += " is-active";
+    }
+
     return (
-        <button className="navbar-burger" data-target="navMenu" aria-label="menu" aria-expanded="false">
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
-            <span aria-hidden="true"></span>
+        <button className={classes} type="button" onClick={props.toggleMobNav}>
+            <span className="hamburger-box">
+                <span className="hamburger-inner"></span>
+            </span>
         </button>
     )    
 }

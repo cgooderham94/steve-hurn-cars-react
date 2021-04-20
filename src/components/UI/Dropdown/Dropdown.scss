@@ -12,6 +12,10 @@
                 position: absolute;
                 top: 100%;
                 left: 0;
+
+                &--shown {
+                    @apply shadow-md;
+                }
             }
         }
     };
@@ -25,7 +29,6 @@
 
         &--shown {
             display: flex;
-            @apply shadow-md;
         }
     }
 
