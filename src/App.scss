@@ -3,6 +3,10 @@
 @tailwind components;
 @tailwind utilities;
 
+@import './core-styles/module.scss';
+
+$nav-height-offset: 58px;
+
 .App {
   text-align: center;
 }
