@@ -1,0 +1,45 @@
+.dropdown {
+    position: relative;
+    display: flex;
+    
+    &.nav-dropdown {
+        flex-direction: column;
+        
+        .dropdown-menu {
+            background-color: white;
+
+            @screen lg {
+                position: absolute;
+                top: 100%;
+                left: 0;
+
+                &--shown {
+                    @apply shadow-md;
+                }
+            }
+        }
+    };
+
+    .dropdown-menu {
+        display: none;
+        flex-direction: column;
+        min-width: 100%;
+        padding: 1rem;
+        text-align: left;
+
+        &--shown {
+            display: flex;
+        }
+    }
+
+    .dropdown-item {
+        padding: 0.125rem 0;
+        color: black;
+        font-size: 1rem;
+        white-space: nowrap;
+
+        &:not(:last-of-type) {
+            margin-bottom: 0.5rem;
+        }
+    }
+}
