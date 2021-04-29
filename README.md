@@ -6,6 +6,18 @@ This repo is a prospective concept for shcars.co.uk, an existing site that was b
 
 It's also a great *real world* opportunity to 'flex my muscles' with react!
 
+## Project Plan
+
+### Tech Stack
+
+The project will progressively see different layers of tech implemented. Here's the long-term vision...
+
+* UI Framework - React
+* Data Layer - GraphQl-based API fed from headless Craft CMS
+* State - React Hooks, Redux (only if necessary, simple state may avoid the need for this)
+* Routing/Server - React Router (short-term), Next.js for SSR & image optimisation (long-term)
+* CSS Framework - Tailwind (Not strictly necessary, but I've heard great things so thought to give it a try.)
+
 ## Available Scripts
 
 In the project directory, you can run:
