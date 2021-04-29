@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import LogoAsset from './logo.png';
 
 const Logo = props => {
@@ -6,7 +7,7 @@ const Logo = props => {
     let logo = logoImg;
 
     if (props.isLink) {
-        logo = <a href="/" className="inline-block">{ logoImg }</a>
+        logo = <Link to="/" className="inline-block">{ logoImg }</Link>
     }
 
     return logo;

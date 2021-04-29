@@ -9,9 +9,11 @@ function App() {
     <div className="App">
       <Navigation></Navigation>
 
-      <Switch>
-        <Route component={ Home } />
-      </Switch>
+      <main>
+        <Switch>
+          <Route component={Home} />
+        </Switch>
+      </main>
     </div>
   );
 }

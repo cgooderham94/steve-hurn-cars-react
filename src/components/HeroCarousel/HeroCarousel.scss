@@ -1,7 +1,5 @@
 .hero-carousel {
-    height: 100vh;
-    max-height: 900px;
-    margin-top: 58px;
     // TODO: Work out how to use global SCSS variables
-    // margin-top: $nav-height-offset;
+    height: calc(100vh - 58px);
+    max-height: 900px;
 }
