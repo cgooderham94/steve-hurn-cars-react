@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import './Dropdown.scss';
 
 const Dropdown = (props) => {
@@ -6,6 +6,7 @@ const Dropdown = (props) => {
 
     let dropdownClasses = "dropdown nav-item";
     let dropdownMenuClasses = "dropdown-menu";
+    let dropdownMenuRef = useRef();
     dropdownClasses = props.classes ? dropdownClasses += ' ' + props.classes : dropdownClasses;
     dropdownMenuClasses = isOpen ? dropdownMenuClasses += ' dropdown-menu--shown border-t-2' : dropdownMenuClasses;
 
@@ -15,16 +16,33 @@ const Dropdown = (props) => {
       });
     };
 
-    return (
-        <div className={dropdownClasses}>
-            <button href="#" className="nav-link" onClick={toggleDropdown} 
-              aria-expanded={isOpen} aria-haspopup="true">{ props.dropdownText }</button>
+    // When focusing out of the dropdown menu, close it.
+    const actionOutsideHandler = (event) => {
+      if (dropdownMenuRef.current && !dropdownMenuRef.current.contains(event.target)) {
+        isOpen && toggleDropdown();
+      };
+    };
 
-            <div className={dropdownMenuClasses}>
-                { props.children }
-            </div>
-        </div>
-    )
+    useEffect(() => {
+      document.addEventListener('focusin', actionOutsideHandler, false);
+      document.addEventListener('mousedown', actionOutsideHandler, false);
+
+      return () => {
+        document.removeEventListener('focusin', actionOutsideHandler, false);
+        document.removeEventListener('mousedown', actionOutsideHandler, false);
+      }
+    });
+
+    return (
+      <div className={dropdownClasses} ref={dropdownMenuRef}>
+          <button href="#" className="nav-link" onClick={toggleDropdown} 
+            aria-expanded={isOpen} aria-haspopup="true">{ props.dropdownText }</button>
+
+          <div className={dropdownMenuClasses} onClick={toggleDropdown}>
+              { props.children }
+          </div>
+      </div>
+    );
 };
 
 export default Dropdown;
