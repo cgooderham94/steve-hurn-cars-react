@@ -14,18 +14,18 @@ const IntroBlock = (props) => {
         // Text/Info Columns
         if (textBlocks.length) {
             textBlocksEl = (
-                <div className="intro-block__text-blocks grid grid-flow-row md:grid-flow-col md:auto-cols-auto px-4">
+                <div className="intro-block__text-blocks grid grid-flow-row md:grid-flow-col md:auto-cols-auto">
                     { textBlocks.map(block => {
                         let { id, heading, bodyText, buttonUrl, buttonText } = block;
 
                         return (
                             <div className="flex flex-col text-block mt-10 md:px-10" key={id}>
-                                <h3 className="font-bold text-lg">{ heading }</h3>
+                                <h3 className="text-green font-bold text-lg">{ heading }</h3>
 
                                 <p className="mt-4">{ bodyText }</p>
                                 
                                 <div className="mt-auto">
-                                    <Button link={ buttonUrl } classes={['mt-4']}>{ buttonText }</Button>
+                                    <Button link={ buttonUrl } classes={['bg-white', 'mt-4']}>{ buttonText }</Button>
                                 </div>                            
                             </div>
                         );
@@ -36,10 +36,10 @@ const IntroBlock = (props) => {
 
         // Outer Block Content
         introBlockEl = (
-            <section className="intro-block py-20">
+            <section className="intro-block bg-cream px-4 py-20">
                 <div className="container mx-auto">    
                     <div className="heading text-center">
-                        <h2>{ heading }</h2>
+                        <h2 className="text-green tracking-wide">{ heading }</h2>
 
                         <div className="mt-6 mb-2">
                             <span className="text-xs uppercase tracking-widest">{ logoOverline }</span>
