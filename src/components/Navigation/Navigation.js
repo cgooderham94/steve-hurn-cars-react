@@ -33,7 +33,7 @@ const Navigation = () => {
     }
 
     return (
-        <header className="z-50">
+        <header className="bg-white z-50">
             <nav className="navbar flex flex-col lg:flex-row flex-wrap py-2 px-4" role="navigation">
                 <div className="navbar-brand flex justify-between">
                     <Logo isLink classes="mr-4" />

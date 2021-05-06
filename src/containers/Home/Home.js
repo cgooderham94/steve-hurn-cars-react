@@ -31,8 +31,10 @@ query GetHome {
                     id
                     logoOverline
                     logo {
-                        id
-                        url
+                        ... on miscellaneous_Asset {
+                            id
+                            url
+                        }
                     }
                     heading
                     textBlocks {
@@ -40,7 +42,8 @@ query GetHome {
                             id
                             heading
                             bodyText
-                            button
+                            buttonUrl
+                            buttonText
                         }
                     }
                 }
