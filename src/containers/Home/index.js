@@ -1,8 +1,9 @@
 import React from 'react';
 import { useQuery, gql } from '@apollo/client';
 
-import HeroCarousel from '../../components/HeroCarousel/HeroCarousel';
-import IntroBlock from '../../components/IntroBlock/IntroBlock';
+import HeroCarousel from '../../components/HeroCarousel';
+import IntroBlock from '../../components/IntroBlock';
+import FeaturedVehicles from '../../components/FeaturedVehicles';
 
 const HOME_DATA = gql`
 query GetHome {
@@ -48,6 +49,15 @@ query GetHome {
                     }
                 }
             }
+            featuredVehicles {
+                ... on featuredVehicles_standard_BlockType {
+                    id
+                    heading
+                    linkText
+                    linkUrl
+                    body
+                }
+            }
         }
     }
 }`;
@@ -64,6 +74,8 @@ const Home = (props) => {
             <HeroCarousel slides={data.entry.heroCarousel} />
 
             <IntroBlock introBlock={data.entry.introBlock}></IntroBlock>
+
+            <FeaturedVehicles featuredVehiclesBlock={data.entry.featuredVehicles}/>
         </React.Fragment>
     );
 };

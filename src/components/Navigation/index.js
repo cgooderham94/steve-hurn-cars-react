@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import Logo from '../Logo/Logo';
-import Hamburger from './Hamburger/Hamburger';
-import NavigationItem from './NavigationItem/NavigationItem';
+import Logo from '../Logo';
+import Hamburger from './Hamburger';
+import NavigationItem from './NavigationItem';
 import PhoneIcon from './assets/phone-icon.svg'
 import convertToKebabCase from '../../hof/convertToKebabCase';
 import './Navigation.scss';

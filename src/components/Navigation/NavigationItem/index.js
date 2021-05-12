@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import Dropdown from '../../UI/Dropdown/Dropdown';
+import Dropdown from '../../UI/Dropdown';
 import convertToKebabCase from '../../../hof/convertToKebabCase';
 import './NavigationItem.scss';
 

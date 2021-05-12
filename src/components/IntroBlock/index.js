@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Button from '../UI/Button/Button';
+import Button from '../UI/Button';
 import './IntroBlock.scss';
 
 const IntroBlock = (props) => {
@@ -14,12 +14,12 @@ const IntroBlock = (props) => {
         // Text/Info Columns
         if (textBlocks.length) {
             textBlocksEl = (
-                <div className="intro-block__text-blocks grid grid-flow-row md:grid-flow-col md:auto-cols-auto">
+                <div className="intro-block__text-blocks grid grid-flow-row md:grid-flow-col md:auto-cols-auto md:gap-x-16">
                     { textBlocks.map(block => {
                         let { id, heading, bodyText, buttonUrl, buttonText } = block;
 
                         return (
-                            <div className="flex flex-col text-block mt-10 md:px-10" key={id}>
+                            <div className="flex flex-col text-block mt-10" key={id}>
                                 <h3 className="text-green font-bold text-lg">{ heading }</h3>
 
                                 <p className="mt-4">{ bodyText }</p>

@@ -1,7 +1,7 @@
 import { Switch, Route } from 'react-router-dom';
-import Navigation from './components/Navigation/Navigation';
+import Navigation from './components/Navigation';
 
-import Home from './containers/Home/Home';
+import Home from './containers/Home';
 import './App.scss';
 
 function App() {
