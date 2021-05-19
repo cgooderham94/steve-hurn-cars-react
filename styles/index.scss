@@ -3,8 +3,8 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-@import "core/module";
-@import "components/module";
+@import "./core/module.scss";
+@import "./components/module.scss";
 
 @layer base {
   * {

@@ -9,16 +9,16 @@
     "@testing-library/user-event": "^12.8.3",
     "graphql": "^15.5.0",
     "next": "^10.2.0",
-    "node-sass": "^5.0.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "web-vitals": "^1.1.1"
   },
   "scripts": {
-    "start": "next start",
+    "dev": "next dev",
     "build": "next build",
-    "test": "next test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "start": "next start",
+    "test": "next test"
   },
   "eslintConfig": {
     "extends": [
@@ -41,6 +41,7 @@
   "devDependencies": {
     "postcss": "^8.2.15",
     "postcss-preset-env": "^6.7.0",
+    "sass": "^1.32.13",
     "tailwindcss": "^2.1.2"
   }
 }

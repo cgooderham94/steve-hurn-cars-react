@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import Dropdown from '../../UI/Dropdown';
 import convertToKebabCase from '../../../hof/convertToKebabCase';
 
@@ -7,11 +8,17 @@ const NavigationItem = (props) => {
         
     if (props.childItems) {
         navigationItem = <Dropdown dropdownText={ props.children } classes="nav-dropdown">
-            { props.childItems.map(item => <a href={item.path} className="dropdown-item" key={convertToKebabCase(item.text)}>{ item.text }</a>) }
+            { props.childItems.map(item => (
+                <Link href={item.path} className="dropdown-item" key={convertToKebabCase(item.text)} passHref>
+                    <a className="dropdown-item">
+                        { item.text }
+                    </a>
+                </Link>
+            )) }
         </Dropdown>;
     } else {
         navigationItem = <div className="nav-item">
-            <a href={props.path} className="nav-link">{ props.children }</a>
+            <Link href={props.path} passHref><a className="nav-link">{ props.children }</a></Link>
         </div>
     }
 
