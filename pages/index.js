@@ -93,7 +93,10 @@ export async function getServerSideProps() {
                         vehicleImages {
                             ... on vehicles_Asset {
                                 id
+                                title
                                 url
+                                width
+                                height
                             }
                         }
                         year

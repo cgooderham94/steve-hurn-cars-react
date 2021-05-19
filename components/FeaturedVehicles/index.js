@@ -19,13 +19,11 @@ const FeaturedVehicles = props => {
                         { linkUrl && linkText && <Button link={ linkUrl } classes={['bg-white', 'mt-4']}>{ linkText }</Button> }
                     </div>
                     
-                    <div className="featured-vehicles__vehicles">
+                    <div className="featured-vehicles__vehicles mt-20">
                         <div className="grid grid-flow-row md:grid-flow-col md:auto-cols-auto md:gap-x-16">
                             { featuredVehicles.map(vehicle => {
                                 return (
-                                    <div className="featured-vehicles__vehicle" key={vehicle.id}>
-                                        <VehicleListingCard vehicle={vehicle}/>
-                                    </div>
+                                    <VehicleListingCard vehicle={vehicle}/>
                                 );
                             }) }
                         </div>
