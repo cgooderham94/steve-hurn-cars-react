@@ -1,17 +1,16 @@
 import React from 'react'
 
+import VehicleListingCard from '../FeaturedVehicles/VehicleListingCard'
 import Button from '../UI/Button';
 
 const FeaturedVehicles = props => {
-    const { featuredVehiclesBlock } = props;
-    let featuredVehicles = null;
-
-    console.log(featuredVehiclesBlock[0].heading);
+    const { featuredVehiclesBlock, featuredVehicles } = props;
+    let block = null;
 
     if (featuredVehiclesBlock.length) {
         const { heading, body, linkText, linkUrl } = featuredVehiclesBlock[0];
 
-        featuredVehicles = (
+        block = (
             <section className="featured-vehicles py-20">
                 <div className="container mx-auto">
                     <div className="featured-vehicles__intro sm:w-4/6 mx-auto text-center">
@@ -22,9 +21,13 @@ const FeaturedVehicles = props => {
                     
                     <div className="featured-vehicles__vehicles">
                         <div className="grid grid-flow-row md:grid-flow-col md:auto-cols-auto md:gap-x-16">
-                            <div className="featured-vehicles__vehicle">
-                                {/* TODO: <VehicleListingCard /> to go here once complete. */}
-                            </div>
+                            { featuredVehicles.map(vehicle => {
+                                return (
+                                    <div className="featured-vehicles__vehicle" key={vehicle.id}>
+                                        <VehicleListingCard vehicle={vehicle}/>
+                                    </div>
+                                );
+                            }) }
                         </div>
                     </div>
                 </div>
@@ -32,7 +35,7 @@ const FeaturedVehicles = props => {
         );
     }
 
-    return featuredVehicles;
+    return block;
 }
 
 export default FeaturedVehicles;

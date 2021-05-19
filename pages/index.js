@@ -7,14 +7,14 @@ import HeroCarousel from '../components/HeroCarousel';
 import IntroBlock from '../components/IntroBlock';
 import FeaturedVehicles from '../components/FeaturedVehicles';
 
-const Home = ({ HOME_DATA }) => {
+const Home = ({ HOME_DATA, VEHICLES }) => {
     return (
         <StandardLayout>
             <HeroCarousel slides={HOME_DATA.heroCarousel} />
 
             <IntroBlock introBlock={HOME_DATA.introBlock}></IntroBlock>
 
-            <FeaturedVehicles featuredVehiclesBlock={HOME_DATA.featuredVehicles}/>
+            <FeaturedVehicles featuredVehiclesBlock={HOME_DATA.featuredVehicles} featuredVehicles={VEHICLES}/>
         </StandardLayout>
     );
 };
@@ -78,13 +78,35 @@ export async function getServerSideProps() {
                         }
                     }
                 }
+                entries(section: "vehicles") {
+                    ... on vehicles_vehicles_Entry {
+                        id
+                        make(label: true)
+                        model
+                        mileage
+                        price
+                        power
+                        title
+                        topSpeed
+                        torque
+                        url
+                        vehicleImages {
+                            ... on vehicles_Asset {
+                                id
+                                url
+                            }
+                        }
+                        year
+                    }
+                }
             }
         `
     });
 
     return {
         props: {
-            HOME_DATA: data.entry
+            HOME_DATA: data.entry,
+            VEHICLES: data.entries
         }
     }
 }
