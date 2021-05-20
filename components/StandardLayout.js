@@ -1,4 +1,5 @@
 import Navigation from './Navigation';
+import Footer from './Footer';
 
 const StandardLayout = props => {
     return (
@@ -8,6 +9,8 @@ const StandardLayout = props => {
             <main className="Content">
                 { props.children }
             </main>
+
+            <Footer />
         </div>
     );
 }

@@ -1,6 +1,6 @@
 const Logo = props => {
     const altText = "Steve Hurn Cars logo";
-    let logoImg = <img src="/logo.png" alt={ altText } width="170" height="40"/>;
+    let logoImg = <img src="/steve-hurn-cars-logo.png" alt={ altText } width="170" height="40"/>;
     let logo = logoImg;
 
     if (props.isLink) {
