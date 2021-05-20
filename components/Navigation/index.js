@@ -54,7 +54,7 @@ const Navigation = () => {
                             +44 7971 124144
                         </a>
                         
-                        <a href="/contact-us" className="nav-item border rounded px-4 py-2 ml-4 mt-4 lg:mt-0">Contact Us</a>
+                        <a href="/contact-us" className="nav-item border rounded px-4 py-2 lg:ml-4 mt-4 lg:mt-0">Contact Us</a>
                     </div>
                 </div>
             </nav>

@@ -54,14 +54,15 @@ const Footer = ({ copyrightStatement }) => {
     ];
 
     return (
-        <footer className="flex flex-col">
+        <footer className="flex flex-col px-4">
             <p className="footer__biz-name text-gray-600 mx-auto text-2xl font-semibold">Steve Hurn Cars</p>
 
             { navLinks && (
                 <nav className="mx-auto mt-10">
-                    <ul className="flex">
+                    <ul className="flex flex-wrap justify-center">
                         { navLinks.map(link => (
-                            <li className="footer-nav__item mx-1">
+                            <li className="footer-nav__item mx-1" key={link.path}>
+                                {/* TODO: Change key to a proper ID */}
                                 <Link href={link.path}><a className="px-2 text-sm tracking-wide uppercase">{ link.text }</a></Link>
                             </li>)) }
                     </ul>
@@ -70,9 +71,10 @@ const Footer = ({ copyrightStatement }) => {
 
             { sundryLinks && (
                 <nav className="mx-auto mt-2">
-                    <ul className="flex">
+                    <ul className="flex flex-wrap">
+                        {/* TODO: Change key to a proper ID */}
                         { sundryLinks.map(link => (
-                            <li className="footer-nav__sundry-item text-xs">
+                            <li className="footer-nav__sundry-item text-xs" key={link.path}>
                                 <Link href={link.path}><a className="px-1 text-gray-900 text-opacity-75">{ link.text }</a></Link>
                             </li>
                         )) }
@@ -82,10 +84,11 @@ const Footer = ({ copyrightStatement }) => {
 
             { socialLinks && (
                 <nav className="mx-auto my-8">
-                    <ul className="flex">
+                    <ul className="flex flex-wrap">
+                        {/* TODO: Change key to a proper ID */}
                         { socialLinks.map(link => (
-                            <li className="footer-nav__social-item mx-1">
-                                <a href={link.url} class="block px-1 py-2">
+                            <li className="footer-nav__social-item mx-1" key={link.platformName}>
+                                <a href={link.url} className="block px-1 py-2">
                                     <img src={`${link.platformName}.svg`} width="20"/>
                                     <span className="sr-only">{ link.platformName }</span>
                                 </a>

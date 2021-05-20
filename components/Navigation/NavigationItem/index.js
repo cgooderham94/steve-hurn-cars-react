@@ -10,7 +10,7 @@ const NavigationItem = (props) => {
         navigationItem = <Dropdown dropdownText={ props.children } classes="nav-dropdown">
             { props.childItems.map(item => (
                 <Link href={item.path} className="dropdown-item" key={convertToKebabCase(item.text)} passHref>
-                    <a className="dropdown-item">
+                    <a className="dropdown-item text-gray-700">
                         { item.text }
                     </a>
                 </Link>
@@ -18,7 +18,7 @@ const NavigationItem = (props) => {
         </Dropdown>;
     } else {
         navigationItem = <div className="nav-item">
-            <Link href={props.path} passHref><a className="nav-link">{ props.children }</a></Link>
+            <Link href={props.path} passHref><a className="nav-link text-gray-700">{ props.children }</a></Link>
         </div>
     }
 

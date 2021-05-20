@@ -11,7 +11,7 @@ const FeaturedVehicles = props => {
         const { heading, body, linkText, linkUrl } = featuredVehiclesBlock[0];
 
         block = (
-            <section className="featured-vehicles py-20">
+            <section className="featured-vehicles px-4 py-20">
                 <div className="container mx-auto">
                     <div className="featured-vehicles__intro sm:w-4/6 mx-auto text-center">
                         { heading && <h2 className="text-green">{ heading }</h2> }
@@ -23,7 +23,7 @@ const FeaturedVehicles = props => {
                         <div className="grid grid-flow-row md:grid-flow-col md:auto-cols-auto md:gap-x-16">
                             { featuredVehicles.map(vehicle => {
                                 return (
-                                    <VehicleListingCard vehicle={vehicle}/>
+                                    <VehicleListingCard vehicle={vehicle} key={vehicle.id}/>
                                 );
                             }) }
                         </div>
