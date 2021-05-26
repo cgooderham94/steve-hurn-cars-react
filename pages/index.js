@@ -12,7 +12,7 @@ const Home = ({ HOME_DATA, VEHICLES }) => {
         <StandardLayout>
             <HeroCarousel slides={HOME_DATA.heroCarousel} />
 
-            <IntroBlock introBlock={HOME_DATA.introBlock}></IntroBlock>
+            <IntroBlock introBlock={HOME_DATA.introBlock} typeHandle={HOME_DATA.introBlock[0].typeHandle}></IntroBlock>
 
             <FeaturedVehicles featuredVehiclesBlock={HOME_DATA.featuredVehicles} featuredVehicles={VEHICLES}/>
         </StandardLayout>
@@ -46,8 +46,9 @@ export async function getServerSideProps() {
                             }
                         }
                         introBlock {
-                            ... on introBlock_standard_BlockType {
+                            ... on introBlock_textColumns_BlockType {
                                 id
+                                typeHandle
                                 logoOverline
                                 logo {
                                     ... on miscellaneous_Asset {
