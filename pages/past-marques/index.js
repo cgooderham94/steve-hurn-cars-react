@@ -4,10 +4,10 @@ import client from '../../apollo-client';
 
 import StandardLayout from '../../components/StandardLayout';
 
-const PastMarques = ({ HOME_DATA, VEHICLES }) => {
+const PastMarques = ({ PAST_MARQUES_DATA, VEHICLES }) => {
     return (
         <StandardLayout>
-            
+    
         </StandardLayout>
     );
 };
@@ -22,7 +22,7 @@ export async function getServerSideProps() {
 
     return {
         props: {
-            // HOME_DATA: data.entry,
+            PAST_MARQUES_DATA: data.entry,
             // VEHICLES: data.entries
         }
     }

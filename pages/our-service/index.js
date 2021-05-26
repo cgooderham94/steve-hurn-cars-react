@@ -5,9 +5,11 @@ import client from '../../apollo-client';
 import StandardLayout from '../../components/StandardLayout';
 
 const OurService = () => {
-    <StandardLayout>
-
-    </StandardLayout>
+    return (
+        <StandardLayout>
+    
+        </StandardLayout>
+    );
 }
 
 export default OurService;
@@ -19,9 +21,8 @@ export async function getServerSideProps() {
     });
 
     return {
-        // props: {
-        //     HOME_DATA: data.entry,
-        //     VEHICLES: data.entries
-        // }
+        props: {
+            OUR_SERVICE_DATA: data.entry
+        }
     }
 }

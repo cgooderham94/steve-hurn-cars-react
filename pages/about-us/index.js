@@ -19,9 +19,9 @@ export async function getServerSideProps() {
     });
 
     return {
-        // props: {
-        //     HOME_DATA: data.entry,
+        props: {
+            ABOUT_US_DATA: data.entry,
         //     VEHICLES: data.entries
-        // }
+        }
     }
 }

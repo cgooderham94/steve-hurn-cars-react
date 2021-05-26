@@ -5,9 +5,11 @@ import client from '../../apollo-client';
 import StandardLayout from '../../components/StandardLayout';
 
 const VehicleDetail = () => {
-    <StandardLayout>
-
-    </StandardLayout>
+    return (
+        <StandardLayout>
+    
+        </StandardLayout>
+    );
 }
 
 export default VehicleDetail;
@@ -19,9 +21,8 @@ export async function getServerSideProps() {
     });
 
     return {
-        // props: {
-        //     HOME_DATA: data.entry,
-        //     VEHICLES: data.entries
-        // }
+        props: {
+            VEHICLE_DATA: data.entry
+        }
     }
 }
