@@ -3,24 +3,20 @@ import Image from 'next/image';
 const VehicleListingCard = ({ vehicle }) => {
     let { 
         id,
+        collection,
         title,
         make,
         model,
         mileage,
         price,
-        images,
-        power,
-        torque,
-        acceleration,
-        topSpeed,
-        url,
+        uri,
         vehicleImages,
         year
     } = vehicle;
     let featuredImage = vehicleImages[0];
 
     return (
-        <a href={ url } className="card--featured-vehicle my-2 border border-gray shadow-sm hover:shadow-none transition-all">
+        <a href={ `/collection/${collection}/${uri}` } className="card--featured-vehicle my-2 border border-gray shadow-sm hover:shadow-none transition-all">
             <div className="card__header relative">
                 { featuredImage && (
                     <Image
