@@ -4,19 +4,15 @@ import client from '../../apollo-client';
 
 import StandardLayout from '../../components/StandardLayout';
 import IntroBlock from '../../components/IntroBlock';
-import VehicleListingCard from '../../components/FeaturedVehicles/VehicleListingCard';
+import FeaturedVehicles from '../../components/FeaturedVehicles';
 
 const CurrentCollection = ({ COLLECTION_DATA, VEHICLES }) => {
     console.log(VEHICLES);
     return (
         <StandardLayout>
-            <IntroBlock introBlock={COLLECTION_DATA.introBlock} typeHandle={COLLECTION_DATA.introBlock[0].typeHandle}/>
+            <IntroBlock introBlock={COLLECTION_DATA.introBlock}/>
 
-            <div>
-                { VEHICLES.map(vehicle => {
-                    return <VehicleListingCard vehicle={vehicle} key={vehicle.id}/>;
-                }) }
-            </div>
+            <FeaturedVehicles featuredVehicles={VEHICLES}/>
         </StandardLayout>
     );
 }
@@ -68,9 +64,10 @@ export async function getServerSideProps() {
                         }
                     }
                 }
-                entries(section: "vehicles", collection: "current") {
+                entries(section: "vehicles", collection: "current-collection") {
                     ... on vehicles_vehicles_Entry {
                         id
+                        collection
                         make
                         mileage
                         model
@@ -79,6 +76,7 @@ export async function getServerSideProps() {
                         title
                         topSpeed
                         torque
+                        uri
                         vehicleImages {
                             ... on vehicles_Asset {
                                 id

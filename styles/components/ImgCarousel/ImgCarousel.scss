@@ -1,0 +1,21 @@
+.img-carousel {
+    .slide {
+        height: 600px;
+        max-height: 75vh;
+        transition: 0.2s ease-in-out;
+
+        @media screen and (max-width: 576px) {
+            height: 30vh;    
+        }
+    }
+
+    
+    .slide:not(.selected) {
+        opacity: 0.5;
+    }
+    
+    .thumbs {
+        display: flex;
+        justify-content: center;
+    }
+}

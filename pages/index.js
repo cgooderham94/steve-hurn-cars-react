@@ -8,13 +8,15 @@ import IntroBlock from '../components/IntroBlock';
 import FeaturedVehicles from '../components/FeaturedVehicles';
 
 const Home = ({ HOME_DATA, VEHICLES }) => {
+    let featuredVehiclesBlock = HOME_DATA.featuredVehicles[0] || {};
+
     return (
         <StandardLayout>
             <HeroCarousel slides={HOME_DATA.heroCarousel} />
 
             <IntroBlock introBlock={HOME_DATA.introBlock} typeHandle={HOME_DATA.introBlock[0].typeHandle}></IntroBlock>
 
-            <FeaturedVehicles featuredVehiclesBlock={HOME_DATA.featuredVehicles} featuredVehicles={VEHICLES}/>
+            <FeaturedVehicles featuredVehiclesBlock={featuredVehiclesBlock} featuredVehicles={VEHICLES}/>
         </StandardLayout>
     );
 };
@@ -82,6 +84,7 @@ export async function getServerSideProps() {
                 entries(section: "vehicles") {
                     ... on vehicles_vehicles_Entry {
                         id
+                        collection
                         make(label: true)
                         model
                         mileage
@@ -90,7 +93,7 @@ export async function getServerSideProps() {
                         title
                         topSpeed
                         torque
-                        url
+                        uri
                         vehicleImages {
                             ... on vehicles_Asset {
                                 id
