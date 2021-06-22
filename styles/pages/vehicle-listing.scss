@@ -1,0 +1,7 @@
+.inline-dl {
+    &.inline-dl--divided {
+        dt::after {
+            content: '|';
+        }
+    }
+}

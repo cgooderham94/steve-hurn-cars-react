@@ -1,0 +1,27 @@
+.inline-dl {
+    &.inline-dl--divided {
+        > div:not(:last-child) {
+            position: relative;
+
+            &::after {
+                content: '|';
+                position: absolute;
+                right: 0;
+                top: 0;
+                transform: translateX(50%);
+            }   
+        }
+    }
+
+    > div {
+        display: inline-block;
+
+        &:not(:last-child) {
+            @apply pr-4;
+        }
+
+        &:not(:first-child) {
+            @apply pl-4;
+        }
+    }
+}

@@ -3,9 +3,33 @@ import client from '../../../apollo-client';
 
 import StandardLayout from '../../../components/StandardLayout';
 import ImgCarousel from '../../../components/ImgCarousel';
+import SpecCard from '../../../components/Vehicle/SpecCard';
 
 const VehicleDetail = ({ VEHICLE_DATA }) => {
     const vehiclePrice = VEHICLE_DATA.price ? `£${VEHICLE_DATA.price}` : 'POA';
+    const vehicleSpecs = {
+        power: {
+            label: 'Power',
+            value: VEHICLE_DATA.power,
+            unit: 'bhp'
+        },
+        accel: {
+            label: '0-60',
+            value: VEHICLE_DATA.acceleration,
+            unit: 's'
+        },
+        torque: {
+            label: 'Torque',
+            value: VEHICLE_DATA.torque,
+            unit: 'nm'
+
+        },
+        topSpeed: {
+            label: 'Top Speed',
+            value: VEHICLE_DATA.topSpeed,
+            unit: 'mph'
+        }
+    }
 
     return (
         <StandardLayout>
@@ -15,39 +39,41 @@ const VehicleDetail = ({ VEHICLE_DATA }) => {
                 <div className="container px-4 mx-auto">
                     <h1 className="text-2xl lg:text-4xl">{ VEHICLE_DATA.title }</h1>
 
-                    <div className="vehicle__price mt-5 lg:mt-6 text-green text-lg lg:text-xl">{ vehiclePrice }</div>
-
-                    <div className="vehicle__desc mt-5 lg:mt-6" dangerouslySetInnerHTML={{ __html: VEHICLE_DATA.bodyText }}></div>
-                </div>
-            </div>
-
-            <div className="vehicle__specs my-10">
-                <div className="container px-4 mx-auto">
-                    <dl className="flex justify-around">
+                    <dl className="inline-dl inline-dl--divided mt-5 lg:mt-6 text-green text-lg lg:text-xl">
+                        <div>    
+                            <dt class="sr-only">Price</dt>
+                            <dd>{ vehiclePrice }</dd>
+                        </div>
                         <div>
-                            <dt>Year:</dt>
+                            <dt class="sr-only">Year</dt>
                             <dd>{ VEHICLE_DATA.year }</dd>
                         </div>
                         <div>
-                            <dt>Mileage:</dt>
+                            <dt class="sr-only">Mileage</dt>
                             <dd>{ `${VEHICLE_DATA.mileage} miles` }</dd>
                         </div>
-                        <div>
-                            <dt>Power:</dt>
-                            <dd>{ `${VEHICLE_DATA.power}bhp` }</dd>
-                        </div>
-                        <div>
-                            <dt>0-60:</dt>
-                            <dd>{ `${VEHICLE_DATA.acceleration}s` }</dd>
-                        </div>
-                        <div>
-                            <dt>Torque:</dt>
-                            <dd>{ `${VEHICLE_DATA.torque}nm` }</dd>
-                        </div>
-                        <div>
-                            <dt>Top Speed:</dt>
-                            <dd>{ `${VEHICLE_DATA.topSpeed}mph` }</dd>
-                        </div>
+                    </dl>
+                </div>
+            </div>
+
+            <div className="vehicle__description bg-cream">
+                <div className="container px-4 py-14 mt-14 mx-auto">
+                    <p id="key-info-label" className="font-bold text-green text-lg">Key Information</p>
+                    <div className="vehicle__desc mt-4 lg:mt-5" aria-labelledby="key-info-label" dangerouslySetInnerHTML={{ __html: VEHICLE_DATA.bodyText }}></div>
+                </div>
+            </div>
+
+            <div className="my-10">
+                <div className="container px-4 mx-auto">
+                    <dl className="vehicle__spec-cards grid grid-cols-4 gap-x-4">
+                        { Object.keys(vehicleSpecs).map(spec => {
+                            return vehicleSpecs[spec].label && vehicleSpecs[spec].value && (
+                                <SpecCard>
+                                    <dt>{ vehicleSpecs[spec].label }</dt>
+                                    <dd>{ vehicleSpecs[spec].value + vehicleSpecs[spec].unit }</dd>
+                                </SpecCard>
+                            )
+                        }) }
                     </dl>
                 </div>
             </div>
