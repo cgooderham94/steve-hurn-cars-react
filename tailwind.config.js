@@ -10,7 +10,8 @@ module.exports = {
       gray: colors.gray,
       white: colors.white,
       green: '#4d5b51',
-      cream: '#f9f8f4'
+      cream: '#f9f8f4',
+      red: '#b83b5e'
     },
     fontFamily: {
       'base': 'Optima, ui-sans-serif, system-ui, sans-serif'
