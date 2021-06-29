@@ -1,0 +1,11 @@
+.spec-card {
+    text-align: center;
+
+    > dt {
+        @apply text-green uppercase tracking-wide;
+    }
+
+    > dd {
+        @apply text-xl mt-4;
+    }
+}

@@ -1,0 +1,36 @@
+input[type="text"],
+input[type="number"],
+input[type="tel"],
+input[type="email"],
+textarea {
+    padding: 0.25rem 0.5rem;
+}
+
+// Input's where label text is overlaid onto input and shrinks on input focus
+.input-group--inline-label {
+    display: flex;
+    flex-direction: column;
+
+    &:not(:last-child) {
+        margin-bottom: 1rem;
+    }
+
+    > div {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+
+        input,
+        textarea {
+            @apply mt-1 border-b border-green;
+            
+            order: 1;
+            background-color: transparentize($color: #000000, $amount: 0.97);
+        }
+
+        .input-group__label-text {
+            order: 0;
+            font-size: 0.875rem;
+        }
+    }
+}

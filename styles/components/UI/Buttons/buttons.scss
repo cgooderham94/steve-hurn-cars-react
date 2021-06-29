@@ -1,0 +1,9 @@
+.btn--block {
+    @apply px-4 py-1 bg-green text-cream;
+    transition: background-color 0.2s ease-in-out;
+
+    &:hover,
+    &:active {
+        background-color: darken($green, 5%);
+    }
+}
