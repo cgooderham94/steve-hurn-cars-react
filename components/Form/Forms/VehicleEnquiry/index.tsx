@@ -1,6 +1,5 @@
-import React from 'react'
+import { transformOperation } from '@apollo/client/link/utils';
 import { useForm } from 'react-hook-form';
-import { isUnparsedSource } from 'typescript';
 
 type FormData = {
     firstName: string,
@@ -11,12 +10,13 @@ type FormData = {
 
 const VehicleEnquiry = ({ classes }) => {
     const { register, setValue, handleSubmit, formState: { errors } } = useForm<FormData>();
+    // TODO: Hook up with some form of SMTP transport
     const onSubmit = handleSubmit(data => console.log(data));
     const FORM_INPUTS = [
         {
             id: 0,
             label: 'First Name',
-            input: <input type="text" id="firstName" 
+            input: <input type="text" id="firstName"
                         name="firstName" {...register("firstName", { required: true, minLength: 10 })}/>,
             errors: [
                 errors.firstName?.type === 'required' && "First name is required",
@@ -26,13 +26,15 @@ const VehicleEnquiry = ({ classes }) => {
         {
             id: 1,
             label: 'Telephone Number',
-            input: <input type="tel" id="telephoneNumber" name="telephoneNumber" {...register("telephoneNumber", { required: true })}/>,
+            input: <input type="tel" id="telephoneNumber" 
+                        name="telephoneNumber" {...register("telephoneNumber", { required: true })}/>,
             errors: [errors.telephoneNumber?.type === 'required' && "Telephone number is required"]
         },
         {
             id: 2,
             label: 'Email',
-            input: <input type="email" id="email" name="email" {...register("email", { required: true })}/>,
+            input: <input type="email" id="email" 
+                        name="email" {...register("email", { required: true })}/>,
             errors: [errors.email?.type === 'required' && "Email address is required"]
         },
         {
@@ -41,8 +43,6 @@ const VehicleEnquiry = ({ classes }) => {
             input: <textarea {...register("enquiry")} rows="3"/>
         }
     ];
-
-    console.log(errors);
 
     return (
         <form action="" className={`flex flex-col ${classes}`}>

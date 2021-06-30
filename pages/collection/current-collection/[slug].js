@@ -1,9 +1,11 @@
+import React, { useRef } from 'react'
 import { gql } from '@apollo/client';
 import client from '../../../apollo-client';
 
 import StandardLayout from '../../../components/StandardLayout';
 import ImgCarousel from '../../../components/ImgCarousel';
 import SpecCard from '../../../components/Vehicle/SpecCard';
+import Fragment from '../../../components/Fragment/index.js';
 import VehicleEnquiry from '../../../components/Form/Forms/VehicleEnquiry/index.tsx';
 
 const VehicleDetail = ({ VEHICLE_DATA }) => {
@@ -32,6 +34,7 @@ const VehicleDetail = ({ VEHICLE_DATA }) => {
         }
     }
     const h2Classes = "font-bold text-green text-lg";
+    const enquiryFormFragId = "vehicle-enquiry-fragment";
     const formInputs = [
         {
             type: 'text',
@@ -41,6 +44,12 @@ const VehicleDetail = ({ VEHICLE_DATA }) => {
             }
         }
     ]
+    const enquiryFormFragRef = useRef(null);
+
+    const scrollToEl = ( elRef, event ) => {
+        event?.preventDefault();
+        elRef.current.scrollIntoView({ behavior: 'smooth' });
+    }
 
     return (
         <StandardLayout>
@@ -66,7 +75,9 @@ const VehicleDetail = ({ VEHICLE_DATA }) => {
                             </div>
                         </dl>
 
-                        <a href="#" className="inline-block p-2 mt-4 rounded-sm text-green bg-cream"><img src="/img/icons/enquire.svg" className="inline-block mr-1" width="20" height="20" alt=""/> Enquire</a>
+                        <a href="#" 
+                            onClick={e => scrollToEl(enquiryFormFragRef, e)} 
+                            className="inline-block p-2 mt-4 rounded-sm text-green bg-cream"><img src="/img/icons/enquire.svg" className="inline-block mr-1" width="20" height="20" alt=""/> Enquire</a>
                     </div>
                 </div>
             </div>
@@ -74,6 +85,7 @@ const VehicleDetail = ({ VEHICLE_DATA }) => {
             <div className="vehicle__description bg-cream">
                 <div className="container px-4 py-14 mt-10 lg:mt-14 mx-auto">
                     <h2 id="key-info-label" className={h2Classes}>Key Information</h2>
+
                     <div className="vehicle__desc mt-4 lg:mt-5" aria-labelledby="key-info-label" dangerouslySetInnerHTML={{ __html: VEHICLE_DATA.bodyText }}></div>
                 </div>
             </div>
@@ -81,7 +93,8 @@ const VehicleDetail = ({ VEHICLE_DATA }) => {
             <div className="my-10">
                 <div className="container px-4 mx-auto">
                     <h2 className={h2Classes}>Tech Specs</h2> 
-                    <dl className="vehicle__spec-cards grid grid-cols-4 gap-x-4 lg:mt-5">
+
+                    <dl className="vehicle__spec-cards grid grid-cols-1 sm:grid-cols-4 gap-4 mt-5">
                         { Object.keys(vehicleSpecs).map(spec => {
                             return vehicleSpecs[spec].label && vehicleSpecs[spec].value && (
                                 <SpecCard>
@@ -100,6 +113,7 @@ const VehicleDetail = ({ VEHICLE_DATA }) => {
 
                     <p>If you have any questions about how we can help with this vehicle, please contact us via the form below.</p>
 
+                    <Fragment elRef={enquiryFormFragRef}/>
                     <VehicleEnquiry classes="mt-8"/>
                 </div>
             </div>
