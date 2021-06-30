@@ -114,7 +114,7 @@ const VehicleDetail = ({ VEHICLE_DATA }) => {
                     <p>If you have any questions about how we can help with this vehicle, please contact us via the form below.</p>
 
                     <Fragment elRef={enquiryFormFragRef}/>
-                    <VehicleEnquiry classes="mt-8"/>
+                    <VehicleEnquiry classes="mt-8" referralPage={VEHICLE_DATA.title}/>
                 </div>
             </div>
 

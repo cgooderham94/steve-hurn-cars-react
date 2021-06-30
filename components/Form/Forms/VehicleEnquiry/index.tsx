@@ -1,26 +1,41 @@
-import { transformOperation } from '@apollo/client/link/utils';
 import { useForm } from 'react-hook-form';
 
 type FormData = {
-    firstName: string,
+    fullName: string,
     telephoneNumber: string,
     email: string,
-    enquiry: string
+    enquiry: string,
+    referralPage: string
 };
 
-const VehicleEnquiry = ({ classes }) => {
+const VehicleEnquiry = ({ classes, referralPage }) => {
     const { register, setValue, handleSubmit, formState: { errors } } = useForm<FormData>();
     // TODO: Hook up with some form of SMTP transport
-    const onSubmit = handleSubmit(data => console.log(data));
+    const onSubmit = handleSubmit(data => {
+        fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+                'Accept': 'application/json, text/plain, */*',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }).then((res) => {
+            console.log("We got a response!");
+
+            if (res.status === 200) {
+                console.log('Response succeeded!');
+            }
+        });
+    });
     const FORM_INPUTS = [
         {
             id: 0,
-            label: 'First Name',
+            label: 'Full Name',
             input: <input type="text" id="firstName"
-                        name="firstName" {...register("firstName", { required: true, minLength: 10 })}/>,
+                        name="firstName" {...register("fullName", { required: true, minLength: 10 })}/>,
             errors: [
-                errors.firstName?.type === 'required' && "First name is required",
-                errors.firstName?.type === 'minLength' && "First name must be longer than 10 characters",
+                errors.fullName?.type === 'required' && "First name is required",
+                errors.fullName?.type === 'minLength' && "First name must be longer than 10 characters",
             ]
         },
         {
@@ -65,7 +80,9 @@ const VehicleEnquiry = ({ classes }) => {
                 )
             }) }
 
-            <button type="submit" className="btn--block" onClick={onSubmit}>Submit</button>
+            <input type="hidden" name="referralPage" value={referralPage} {...register("referralPage")}/>
+
+            <button type="submit" className="btn--block" onClick={(e) => onSubmit(e)}>Submit</button>
         </form>
     )
 }
