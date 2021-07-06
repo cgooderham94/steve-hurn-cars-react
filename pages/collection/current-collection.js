@@ -67,15 +67,11 @@ export async function getServerSideProps() {
                 entries(section: "vehicles", collection: "current-collection", availability: true) {
                     ... on vehicles_vehicles_Entry {
                         id
+                        availability
                         collection
-                        make
                         mileage
-                        model
-                        power
                         price
                         title
-                        topSpeed
-                        torque
                         uri
                         vehicleImages {
                             ... on vehicles_Asset {

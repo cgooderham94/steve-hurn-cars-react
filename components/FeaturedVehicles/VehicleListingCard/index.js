@@ -2,6 +2,7 @@ import Image from 'next/image';
 
 const VehicleListingCard = ({ vehicle, hasLink = true }) => {
     let {
+        availability,
         collection,
         title,
         mileage,
@@ -30,7 +31,7 @@ const VehicleListingCard = ({ vehicle, hasLink = true }) => {
             <dl className="card__detail-list flex flex-wrap -mx-3">
                 <div className="px-3">
                     <dt className="sr-only">Price</dt>
-                    <dd>{ `£${price}` }</dd>
+                    <dd>{ availability ? `£${price}` : 'SOLD' }</dd>
                 </div>
                 <div className="px-3">
                     <dt className="sr-only">Year of manufacture</dt>

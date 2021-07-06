@@ -67,6 +67,7 @@ export async function getServerSideProps() {
                 entries(section: "vehicles", collection: "classic-collection", availability: true) {
                     ... on vehicles_vehicles_Entry {
                         id
+                        availability
                         collection
                         make
                         mileage
