@@ -1,0 +1,13 @@
+.hero--standard {
+    position: relative;
+    height: calc(100vh - #{$nav-height}); 
+
+    
+
+    .hero__content {
+        position: absolute;
+        top: 2rem;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

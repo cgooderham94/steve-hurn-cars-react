@@ -1,7 +1,15 @@
 /* THEME COLOURS */
+$black: #333333;
 $red: #b83b5e;
 $cream: #f9f8f4;
 $green: #4d5b51;
+
+$sm-breakpoint-max: 575.99px;
+$sm-breakpoint-min: 576px;
+$md-breakpoint-max: 767.99px;
+$md-breakpoint-min: 768px;
+
+$container-max-width: 1280px;
 
 /* COMPONENT/ELEMENT VARIABLES */
 $nav-height: 58px;

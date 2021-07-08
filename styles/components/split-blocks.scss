@@ -1,0 +1,25 @@
+.split-blocks {
+    .split-blocks__block {
+        > .container {
+            display: flex;
+            
+            @media screen and (max-width: $md-breakpoint-max) {
+                flex-direction: column !important;
+            }
+        }
+
+        &:nth-child(odd) {
+            @apply bg-cream;
+
+            > .container {
+                flex-direction: row-reverse;
+            }
+        }
+        
+        &:nth-child(even) {
+            > .container {
+                flex-direction: row;
+            }
+        }
+    }
+}

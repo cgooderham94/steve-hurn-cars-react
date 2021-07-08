@@ -13,7 +13,7 @@ const PastMarques = ({ PAST_MARQUES_DATA, VEHICLES_DATA }) => {
 
             <div id="past-marques-collection">
                 <div className="container px-4 py-14 lg:mt-10 mx-auto">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
                         { VEHICLES_DATA.map(vehicle => {
                             return <VehicleListingCard key={vehicle.id} vehicle={vehicle} hasLink={false}></VehicleListingCard>
                         }) }
