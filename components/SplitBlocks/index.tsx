@@ -2,13 +2,25 @@ import Image from 'next/image';
 import Container from '../UI/Container';
 import Button from '../UI/Button';
 
-const SplitBlocks = ({ blocks }) => {
-    console.log(blocks.length)
+interface ImageProps {
+    url: string,
+    width?: number,
+    height?: number
+}
 
+interface SplitBlock {
+    heading: string,
+    image: ImageProps[],
+    bodyText?: string,
+    buttonText?: string,
+    buttonUrl?: string
+}
+
+const SplitBlocks = ({ blocks }) => {
     let content = null;
 
     if (blocks.length) {
-        content = blocks.map(block => {
+        content = blocks.map((block: SplitBlock) => {
             let imageContent = null;
 
             if (block.image.length) {
@@ -43,8 +55,6 @@ const SplitBlocks = ({ blocks }) => {
             )
         });
     }
-
-    console.log(content);
 
     return (
         <div className="split-blocks">

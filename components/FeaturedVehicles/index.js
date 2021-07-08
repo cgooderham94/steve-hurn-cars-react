@@ -12,7 +12,7 @@ const FeaturedVehicles = props => {
     if (featuredVehicles.length) {
         vehicleCards = (
             <div className={`featured-vehicles__vehicles ${featuredVehiclesBlock && 'mt-20'}`}>
-                <div className="grid grid-flow-row md:grid-flow-col md:auto-cols-auto md:gap-x-16">
+                <div className="grid grid-flow-row md:grid-flow-col md:grid-cols-2 justify-center md:gap-x-16">
                     { featuredVehicles.map(vehicle => {
                         return (
                             <VehicleListingCard vehicle={vehicle} key={vehicle.id}/>

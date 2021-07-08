@@ -5,7 +5,7 @@ import client from '../../apollo-client';
 import StandardLayout from '../../components/StandardLayout';
 import HeroStandard from '../../components/HeroStandard';
 import IntroBlock from '../../components/IntroBlock';
-import SplitBlocks from '../../components/SplitBlocks';
+import SplitBlocks from '../../components/SplitBlocks/index.tsx';
 
 const OurService = ({ OUR_SERVICE_DATA }) => {
     return (

@@ -81,7 +81,7 @@ export async function getServerSideProps() {
                         }
                     }
                 }
-                entries(section: "vehicles", availability: true) {
+                entries(section: "vehicles", availability: true, limit: 2) {
                     ... on vehicles_vehicles_Entry {
                         id
                         collection
