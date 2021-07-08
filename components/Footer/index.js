@@ -81,7 +81,7 @@ const Footer = ({ copyrightStatement }) => {
                 </nav>
             ) }
 
-            { socialLinks && (
+            { socialLinks ? (
                 <nav className="mx-auto my-8">
                     <ul className="flex flex-wrap">
                         {/* TODO: Change key to a proper ID */}
@@ -95,7 +95,7 @@ const Footer = ({ copyrightStatement }) => {
                         )) }
                     </ul>
                 </nav>
-            ) }
+            ) : null }
 
             <p className="footer__site-by text-xs py-2 mx-auto text-center tracking-wide">
                 Website by <a href="https://www.linkedin.com/in/charles-gooderham/" 
