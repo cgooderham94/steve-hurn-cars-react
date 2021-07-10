@@ -74,7 +74,6 @@ export async function getServerSideProps() {
                         splitBlocks {
                             ... on splitBlocks_standard_BlockType {
                                 id
-                                heading
                                 image {
                                     ... on miscellaneous_Asset {
                                         id
