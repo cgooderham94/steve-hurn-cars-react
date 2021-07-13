@@ -2,7 +2,7 @@ import React from 'react';
 import { gql } from '@apollo/client';
 import client from '../../apollo-client';
 
-import StandardLayout from '../../components/StandardLayout';
+import StandardLayout from '../../components/Layouts/StandardLayout';
 import IntroBlock from '../../components/IntroBlock';
 import VehicleListingCard from '../../components/FeaturedVehicles/VehicleListingCard';
 

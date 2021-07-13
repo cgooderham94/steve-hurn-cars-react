@@ -25,7 +25,7 @@ interface Props {
 const SplitBlocks:FC<Props> = ({ blocks }) => {
     let content = null;
 
-    if (blocks.length) {
+    if (blocks?.length) {
         content = blocks.map((block) => {
             return <SplitBlock splitBlock={block} key={block.id} />;
         });

@@ -1,5 +1,5 @@
-import Navigation from './Navigation';
-import Footer from './Footer';
+import Navigation from '../Navigation';
+import Footer from '../Footer';
 
 const StandardLayout = props => {
     return (

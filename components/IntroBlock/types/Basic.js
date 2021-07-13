@@ -1,9 +1,11 @@
 import Button from '../../UI/Button';
 
 const Basic = ({ introBlock }) => {
-    const { id, heading, bodyText, buttons } = introBlock[0];
+    const { id, heading, bodyText, buttons } = introBlock;
     let introBlockEl;
     let introButtons;
+
+    console.log(heading);
 
     // Text/Info Columns
     if (buttons?.length) {

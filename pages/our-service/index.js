@@ -2,7 +2,7 @@ import React from 'react';
 import { gql } from '@apollo/client';
 import client from '../../apollo-client';
 
-import StandardLayout from '../../components/StandardLayout';
+import StandardLayout from '../../components/Layouts/StandardLayout';
 import HeroStandard from '../../components/HeroStandard';
 import IntroBlock from '../../components/IntroBlock';
 import SplitBlocks from '../../components/SplitBlocks/index.tsx';
@@ -10,9 +10,9 @@ import SplitBlocks from '../../components/SplitBlocks/index.tsx';
 const OurService = ({ OUR_SERVICE_DATA }) => {
     return (
         <StandardLayout>
-            <HeroStandard content={OUR_SERVICE_DATA.heroStandard[0]} />
+            <HeroStandard content={OUR_SERVICE_DATA.heroStandard} />
 
-            <IntroBlock introBlock={OUR_SERVICE_DATA.introBlock} typeHandle={OUR_SERVICE_DATA.introBlock[0].typeHandle} />
+            <IntroBlock introBlock={OUR_SERVICE_DATA.introBlock} />
 
             <SplitBlocks blocks={OUR_SERVICE_DATA.splitBlocks} />
         </StandardLayout>

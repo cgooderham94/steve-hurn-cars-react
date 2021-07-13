@@ -1,7 +1,7 @@
 import Button from '../../UI/Button';
 
 const TextColumn = ({ introBlock }) => {
-    const { heading, logoOverline, logo, textBlocks } = introBlock[0];
+    const { heading, logoOverline, logo, textBlocks } = introBlock;
     let introBlockEl;
     let textBlocksEl = null;
 

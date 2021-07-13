@@ -3,12 +3,16 @@ import TextColumnType from './types/TextColumn';
 
 const IntroBlock = ({ introBlock }) => {
     let blockTypeEl = null;
-    let typeHandle = introBlock[0] ? introBlock[0].typeHandle : '';
+    
+    if (introBlock?.length) {
+        let introBlockContent = introBlock[0];
+        let typeHandle = introBlockContent.typeHandle;
 
-    if (typeHandle == 'textColumns') {
-        blockTypeEl = <TextColumnType introBlock={introBlock}/>;
-    } else if (typeHandle == 'basic') {
-        blockTypeEl = <BasicType introBlock={introBlock}/>;
+        if (typeHandle == 'textColumns') {
+            blockTypeEl = <TextColumnType introBlock={introBlockContent}/>;
+        } else if (typeHandle == 'basic') {
+            blockTypeEl = <BasicType introBlock={introBlockContent}/>;
+        }
     }
 
     return blockTypeEl;

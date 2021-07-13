@@ -39,7 +39,7 @@ const SplitBlock:FC<Props> = ({ splitBlock }) => {
         <div className="split-blocks__block">
             <Container>
                 <div className="block__content lg:w-3/5 p-4 lg:px-8">
-                    { splitBlock.heading ? <h2 className="text-2xl font-bold">{ splitBlock.heading }</h2> : null }
+                    { splitBlock.heading ? <h2 className="text-2xl text-green font-bold">{ splitBlock.heading }</h2> : null }
 
                     { splitBlock.bodyText ? <div className="mt-4" 
                                             dangerouslySetInnerHTML={{ __html: splitBlock.bodyText }}></div> : null }
