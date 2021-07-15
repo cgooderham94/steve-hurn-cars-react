@@ -3,7 +3,7 @@ import React, { useRef } from 'react'
 import ImgCarousel from '../../../ImgCarousel';
 import SpecCard from '../../../Vehicle/SpecCard';
 import Fragment from '../../../Fragment/index.js';
-import VehicleEnquiry from '../../../Form/Forms/VehicleEnquiry';
+import VehicleEnquiry from '../../../Forms/VehicleEnquiry';
 
 const VehicleEntrySubLayout = ({ vehicleData }) => {
     // Function Variables

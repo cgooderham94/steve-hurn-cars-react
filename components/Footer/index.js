@@ -1,3 +1,5 @@
+import React from 'react';
+
 import Link from 'next/link';
 
 const Footer = ({ copyrightStatement }) => {
@@ -54,7 +56,7 @@ const Footer = ({ copyrightStatement }) => {
     ];
 
     return (
-        <footer className="flex flex-col px-4">
+        <footer className="flex flex-col px-4 py-12">
             <p className="footer__biz-name text-gray-600 mx-auto text-2xl font-semibold">Steve Hurn Cars</p>
 
             { navLinks && (
